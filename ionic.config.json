@@ -1,0 +1,7 @@
+{
+  "name": "IONIC2023",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
