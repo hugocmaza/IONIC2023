@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>editTarea</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list lines="full">
+    <form [formGroup]="formulario" >
+      <ion-item>
+        <ion-label position="floating">Titulo</ion-label>
+        <ion-input type="text" class="form-control" formControlName="titulo" > </ion-input>
+
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Titulo</ion-label>
+
+        <ion-input type="date" class="form-control"  formControlName="fecha"> </ion-input>
+      </ion-item>
+
+      <ion-row>
+        <ion-col>
+          <ion-button type="submit" color="secondary" expand="block" (click)="updateTarea()" >Modificar</ion-button>
+        </ion-col>
+      </ion-row>
+
+    </form>
+
+
+
+    </ion-list>
+
+</ion-content>

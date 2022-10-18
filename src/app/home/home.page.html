@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>home</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Listado de Tareas - </ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-list>
+    <ion-item-sliding *ngFor="let tarea of tareas">
+      <ion-item-options side="start">
+        <ion-item-option color="success">
+          <ion-icon slot="icon-only" name="archive"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+
+      <ion-item>
+        <ion-label>{{tarea.titulo}}</ion-label>
+      </ion-item>
+
+      <ion-item-options side="end">
+        <ion-item-option>
+          <ion-icon slot="icon-only" name="pencil" [routerLink]="['/edit-tarea/', tarea.id]" ></ion-icon>
+        </ion-item-option>
+        <ion-item-option color="danger">
+          <ion-icon slot="icon-only" name="trash" (click)="borrar(tarea.id)"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>
