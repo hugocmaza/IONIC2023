@@ -4,18 +4,18 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { TabseminarioPageRoutingModule } from './tabseminario-routing.module';
+import { ModalEditarPageRoutingModule } from './modal-editar-routing.module';
 
-import { TabseminarioPage } from './tabseminario.page';
+import { ModalEditarPage } from './modal-editar.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    TabseminarioPageRoutingModule,
+    ModalEditarPageRoutingModule,
     ReactiveFormsModule
   ],
-  declarations: [TabseminarioPage]
+  declarations: [ModalEditarPage]
 })
-export class TabseminarioPageModule {}
+export class ModalEditarPageModule {}

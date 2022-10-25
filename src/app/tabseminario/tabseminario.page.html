@@ -17,9 +17,11 @@
             <img alt="{{tarea.titulo}}" src="https://picsum.photos/200/300?random=1{{tarea.id}}" />
           </ion-thumbnail>
           <ion-label>{{tarea.titulo}} - {{tarea.fecha}}</ion-label>
+          <ion-button id="modaleditar" expand="block" (click)="openIonModal(tarea.id)">Editar</ion-button>
         </ion-item>
 
       </ion-list>
     </ion-card-content>
   </ion-card>
+
 </ion-content>

@@ -25,6 +25,10 @@ const routes: Routes = [
   {
     path: 'acerca-de',
     loadChildren: () => import('./acerca-de/acerca-de.module').then( m => m.AcercaDePageModule)
+  },
+  {
+    path: 'modal-editar',
+    loadChildren: () => import('./modal-editar/modal-editar.module').then( m => m.ModalEditarPageModule)
   }
 ];
 @NgModule({

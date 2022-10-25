@@ -1,7 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { IonModal, ModalController } from '@ionic/angular';
 import { Tarea } from '../model/tarea';
 import { TareasService } from '../services/tareas.service';
+import { OverlayEventDetail } from '@ionic/core/components';
+import { ModalEditarPage } from '../modal-editar/modal-editar.page';
+
 
 @Component({
   selector: 'app-tabseminario',
@@ -9,15 +13,35 @@ import { TareasService } from '../services/tareas.service';
   styleUrls: ['./tabseminario.page.scss'],
 })
 export class TabseminarioPage implements OnInit {
-
+  @ViewChild(IonModal) modal: IonModal;
+  message = 'hol';
+  name = 'nnnn';
   tareas: Tarea[] = [];
 
-  constructor(private service: TareasService,  private router: Router) { }
+  constructor(private service: TareasService,  private router: Router,public modalController: ModalController) { }
 
   ngOnInit(): void {
     this.service.getAllTareas().subscribe((resp: Tarea[])=>{
       this.tareas = resp;
     });
+  }
+
+  async openIonModal(id: number) {
+    const modal = await this.modalController.create({
+      component: ModalEditarPage,
+      componentProps: {
+        idTarea: id
+      }
+    });
+    modal.onDidDismiss().then((modelData) => {
+      if (modelData !== null) {
+
+        console.log('Modal Data : ' + modelData.data);
+        this.ngOnInit();
+
+      }
+    });
+    return await modal.present();
   }
 
 }
